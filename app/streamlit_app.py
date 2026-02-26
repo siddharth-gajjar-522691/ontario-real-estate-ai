@@ -9,8 +9,13 @@ model = joblib.load("models/ontario_price_model.pkl")
 
 st.set_page_config(page_title = "house Price Predictor", layout="centered")
 
-st.title("🏡 Ontario House Price Predictor")
+st.title("🏡 Ontario AI Home Price Estimator")
 st.write("Enter property details below to get an instant AI‑powered price estimate.")
+st.caption("Powered by Machine Learning • Built by mPowered Solutions Developer Siddharth Gajjar")
+st.sidebar.header("About This Demo")
+st.sidebar.write("This AI model predicts home prices across Ontario using ML.")
+st.markdown("---")
+st.markdown("Built by **Siddharth Gajjar** • AI & Embedded Systems Engineer")
 
 # Input form
 with st.form("prediction_form"):
@@ -27,6 +32,7 @@ with st.form("prediction_form"):
     postal_code = st.text_input("Postal Code (e.g., M5V)", "M5V")
 
     submitted = st.form_submit_button("Predict Price")
+    
 
 if submitted:
     input_data = pd.DataFrame([{
@@ -45,8 +51,8 @@ if submitted:
         "avg_price_region": 0,
         "price_index": 0
     }])
-
-    prediction = model.predict(input_data)[0]
+    with st.spinner("Predicting price..."):
+        prediction = model.predict(input_data)[0]
 
     st.success(f"### Estimated Price: **${prediction:,.0f}**")
 
