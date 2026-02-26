@@ -9,6 +9,8 @@ model = joblib.load("models/ontario_price_model.pkl")
 
 st.set_page_config(page_title = "house Price Predictor", layout="centered")
 
+st.sidebar.image("data/mPowered_Logo.png")
+
 st.title("🏡 Ontario AI Home Price Estimator")
 st.write("Enter property details below to get an instant AI‑powered price estimate.")
 st.caption("Powered by Machine Learning • Built by mPowered Solutions Developer Siddharth Gajjar")
