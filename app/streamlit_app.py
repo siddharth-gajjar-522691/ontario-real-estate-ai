@@ -51,14 +51,35 @@ if submitted:
         "avg_price_region": 0,
         "price_index": 0
     }])
+    region_avg = {
+        "Hamilton": 700000,
+        "Toronto": 1000000,
+        "Mississauga": 950000,
+        "Brampton": 900000,
+        "Ottawa": 650000,
+        "Waterloo": 750000,
+        "London": 600000,
+        "Oakville": 1200000,
+        "Burlington": 850000
+    }
+
+    # Fill regional features instead of zeros 
+    input_data["avg_price_region"] = region_avg.get(city, 800000) 
+    input_data["price_index"] = input_data["avg_price_region"] / 100000 
+    input_data["housing_starts"] = 50 
+    input_data["new_units"] = 200 
+    input_data["long_term_care_beds"] = 20 
+    input_data["aru_units"] = 10
+
     with st.spinner("Predicting price..."):
         prediction = model.predict(input_data)[0]
+        prediction = max(prediction, 50000)
 
     st.success(f"### Estimated Price: **${prediction:,.0f}**")
 
     # Confidence interval
     mae = 102526  # from your model results
-    lower = prediction - mae
+    lower = max(prediction - mae, 0)
     upper = prediction + mae
 
     st.info(f"Confidence Range: **${lower:,.0f} - ${upper:,.0f}**")
