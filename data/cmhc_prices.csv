@@ -1,0 +1,10 @@
+region,year,avg_price_region,price_index
+Toronto,2023,1120000,178
+Mississauga,2023,890000,162
+Brampton,2023,820000,155
+Ottawa,2023,710000,148
+Hamilton,2023,690000,145
+London,2023,540000,132
+Waterloo,2023,760000,150
+Burlington,2023,880000,160
+Oakville,2023,1350000,190

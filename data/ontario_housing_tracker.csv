@@ -1,0 +1,10 @@
+municipality,year,housing_starts,new_units,long_term_care_beds,aru_units
+Toronto,2023,28500,31000,1200,850
+Mississauga,2023,8200,9000,300,210
+Brampton,2023,7600,8100,250,190
+Ottawa,2023,6800,7200,400,260
+Hamilton,2023,5400,5800,180,140
+London,2023,4900,5200,150,120
+Waterloo,2023,3500,3800,100,90
+Burlington,2023,2900,3100,80,60
+Oakville,2023,3100,3400,90,70
