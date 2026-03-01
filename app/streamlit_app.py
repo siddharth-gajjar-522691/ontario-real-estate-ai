@@ -17,8 +17,22 @@ st.caption("Powered by Machine Learning • Built by mPowered Solutions Develope
 st.sidebar.header("About This Demo")
 st.sidebar.write("This AI model predicts home prices across Ontario using ML.")
 st.markdown("---")
-st.markdown("Built by **Siddharth Gajjar** • AI & Embedded Systems Engineer")
+st.markdown("Built by **Siddharth Gajjar** •\n AI & Embedded Systems Engineer")
 
+def add_bg_from_url():
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: data/toronto.webp;
+            background-size: cover;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+add_bg_from_url()
 # Input form
 with st.form("prediction_form"):
     col1, col2 = st.columns(2)
